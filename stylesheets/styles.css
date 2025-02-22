@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+
+::-webkit-scrollbar {
+    width: 6px;
+    background-color: #3d3d3d;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #b1b1b1;
+    border-radius: 3px;
+    transition: background-color 0.1s;
+}
+  
+::-webkit-scrollbar-thumb:hover {
+    background-color: #D3FF3A;
+    transition: background-color 0.1s;
+}
+
+body {
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+
+    width: 100%;
+    margin: 0;
+    font-family: Helvetica, sans-serif;
+    color: #3d3d3d;
+    background-color: #EBE8E2;
+}
+
+#root {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    font-size: 4rem;
+    margin: 10vh 5vw 0 35vw;
+    font-family: "Playfair Display"
+}
+
+h2 {
+    font-size: 2rem;
+    margin: 10vh 15vw 0 30vw;
+    font-family: "Playfair Display"
+}
+
+.info-section {
+    margin-top: 10vh;
+    margin-left: 30vw;
+    display: flex;
+    flex-direction: row;
+}
+
+.info-section-title > p {
+    font-family: "Playfair Display";
+    font-size: 1.2rem;
+    margin-top: 0.4rem;
+    white-space: nowrap;
+    width: 15vw;
+}
+
+.info-section-info {
+    margin-right: 30vw;
+}
+
+h3, .h3link {
+    font-size: 3rem;
+    margin: 0;
+    font-weight: bold;
+    color: #3d3d3d;
+}
+
+h4 {
+    font-size: 1.2rem;
+    color: #616161;
+}
+
+a {
+    font-size: 1rem;
+    transition: color 0.1s;
+}
+
+a:hover {
+    color: #D3FF3A;
+    transition: color 0.1s;
+}
+
+#header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid #3d3d3d;
+}
+
+.header-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+#home-button {
+    flex: .5;
+    border-right: 1px solid #3d3d3d;
+    padding: 0 10%;
+}
+
+.header-column > a {
+    margin: 5vh;
+}
+
+#footer {
+    width: 100%;
+    border-top: 1px solid #3d3d3d;
+    margin-top: 10vh;
+    z-index: 5;
+}
+
+#footer > p {
+    text-align: right;
+    margin: 5vh 10vw;
+}
+
+#card {
+    position: fixed;
+    height: 32vw;
+    width: 22vw;
+    transform: rotate(-4deg);
+    border-radius: 0.75vh;
+    background-color: #D3FF3A;
+    margin-top: 22vh;
+    margin-left: 5vw;
+    transition: height 0.3s, width 0.3s, transform 0.3s, margin-top 0.3s;
+}
+
+#card:hover {
+    height: 36vw;
+    width: 26vw;
+    transform: rotate(4deg);
+    margin-top: 20vh;
+    transition: height 0.3s, width 0.3s, transform 0.3s, margin-top 0.3s;
+}
+
+#card-bg {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    border-radius: 0.75vh;
+    background-color: #3d3d3d;
+    transition: height 0.5s;
+}
+
+#card:hover #card-bg {
+    height: 0%;
+    transition: height 0.5s;
+}
+
+#card-img {
+    position: fixed;
+    height: 98.3%;
+    width: 97.5%;
+    margin: 1.25%;
+    border-radius: 0.5vh;
+    z-index: 1;
+    background-color: #EBE8E2;
+    background-image: url("../data/imgs/portrait.jpg");
+    background-size: cover;
+    filter: blur(0.05rem) saturate(0) contrast(0.8) brightness(1.2);
+}
+
+@media screen and (max-width: 995px) {
+    #card {
+        display: none;
+    }
+    .info-section {
+        display: block;
+    }
+    h1, h2, .info-section {
+        margin-left: 10vw;
+    }
+    h1 {
+        font-size: 6rem;
+    }
+    h2 {
+        font-size: 3rem;
+    }
+    h3, .h3link {
+        font-size: 4.5rem;
+    }
+    h4 {
+        font-size: 3rem;
+    }
+    .info-section-title > p {
+        font-size: 2rem;
+    }
+}
