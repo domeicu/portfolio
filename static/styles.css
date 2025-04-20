@@ -75,17 +75,24 @@ footer > div > p {
     border-radius: 1em;
 }
 
+.container:hover {
+    border-color: var(--color-accent2);
+}
+
+.active-container {
+    border-color: var(--color-accent);
+}
+
 .title {
     width: fit-content;
     margin: 0 auto;
     padding: 0.5em 5em;
     margin-top: -1.2em;
-    text-align: center;
     color: var(--color-accent3);
 }
 
-.active-container {
-    border-color: var(--color-accent);
+.container:hover .title {
+    color: var(--color-accent2);
 }
 
 .active-container > .title {
@@ -99,6 +106,16 @@ footer > div > p {
     font-family: Playfair Display;
     font-size: larger;
     font-weight: 600;
+}
+
+.list-item {
+    width: 100%;
+    text-align: center;
+    padding: 0;
+}
+
+.list-item:hover, .active-list-item {
+    background-color: var(--color-accent3);
 }
 
 #home {
