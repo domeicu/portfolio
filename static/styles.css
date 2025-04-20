@@ -34,13 +34,17 @@ a:hover {
     color: var(--color-accent);
 }
 
+.fa {
+    text-decoration: none;
+}
+
 footer {
     flex: 1;
     text-align: center;
     color: var(--color-accent3)
 }
 
-footer > div > p {
+footer > div > p, footer > div > a {
     margin: 0;
 }
 
