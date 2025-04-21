@@ -145,10 +145,6 @@ footer > div > p, footer > div > a {
     display: block;
 }
 
-.content-paragraph {
-    margin: 2vw;
-}
-
 #home {
     flex: none;
 }
@@ -182,6 +178,7 @@ h3 {
     color: var(--color-accent3);
     line-height: 0;
     margin-left: 2vw;
+    margin-top: 0.6vw;
 }
 
 a {
@@ -211,6 +208,7 @@ ul {
 
 /* Content Window Specifics */
 
-#project-youtube-text {
+.content-paragraph-split {
     column-count: 2;
+    column-gap: 0;
 }

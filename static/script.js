@@ -29,18 +29,17 @@ function update() {
 }
 
 for (let i = 0; i < len; i++) {
-    sections[i].onclick = function () {
+    sections[i].onclick = function() {
         if (index != i) {
             sectionIndexes[i] = 0;
         }
         index = i;
         update();
     }
-}
-
-for (let i = 0; i < len; i++) {
     for (let j = 0; j < sectionLengths[i]; j++) {
-        subsections[i][j].onclick = function () {
+        subsections[i][j].onclick = function(event) {
+            event.stopPropagation();
+            index = i;
             sectionIndexes[i] = j;
             update();
         }
