@@ -115,6 +115,11 @@ footer > div > p, footer > div > a {
     padding: 0;
 }
 
+.list-item > p {
+    margin: 0;
+    padding: 0.5em 0;
+}
+
 .list-item:hover, .active-list-item {
     background-color: var(--color-accent3);
 }
@@ -162,6 +167,7 @@ h1 {
     font-size: 8em;
     line-height: 0.8;
     text-wrap: wrap;
+    word-wrap: break-word;
     margin: 3vw 3vw 1vw 2vw;
 }
 

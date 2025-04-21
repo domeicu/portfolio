@@ -3,7 +3,6 @@ contents = document.getElementsByClassName("content")
 let subsections = []
 let sectionLengths = []
 let sectionIndexes = []
-
 let len = sections.length
 let index = 0
 
@@ -13,40 +12,37 @@ for (let i = 0; i < len; i++) {
     sectionIndexes[i] = 0;
 }
 
-console.log(subsections[1])
-
-function update(index) {
+function update() {
     for (let i = 0; i < len; i++) {
         sections[i].classList.remove("active-container");
         contents[i].classList.remove("active-content");
         for (let j = 0; j < sectionLengths[i]; j++) {
-            console.log(i, j)
+            contents[i + j].classList.remove("active-content")
             subsections[i][j].classList.remove("active-list-item");
         }
     }
     sections[index].classList.add("active-container");
-    contents[index].classList.add("active-content");
-    subsections[index][sectionIndexes[index]].classList.add("active-list-item")
+    contents[index + sectionIndexes[index]].classList.add("active-content");
+    if (index != 0) {
+        subsections[index][sectionIndexes[index]].classList.add("active-list-item")
+    }
 }
-
-// document.addEventListener('keydown', function(event) {
-//     if (event.key == "ArrowLeft") {
-//         if (index > 0) {
-//             index --;
-//             update(index);
-//         }
-//     }
-//     if (event.key == "ArrowRight") {
-//         if (index < len) {
-//             index ++;
-//             update(index);
-//         }
-//     }
-// });
 
 for (let i = 0; i < len; i++) {
     sections[i].onclick = function () {
+        if (index != i) {
+            sectionIndexes[i] = 0;
+        }
         index = i;
-        update(index);
+        update();
+    }
+}
+
+for (let i = 0; i < len; i++) {
+    for (let j = 0; j < sectionLengths[i]; j++) {
+        subsections[i][j].onclick = function () {
+            sectionIndexes[i] = j;
+            update();
+        }
     }
 }
