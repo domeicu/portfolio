@@ -10,16 +10,31 @@
     --box-margin: 1.2vh;
 }
 
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-accent2);
+    border-radius: 2.5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-accent);
+}
+
 * {
     font-family: Roboto, sans-serif;
     transition: 0.2s;
 }
 
 body {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    width: 100vw;
+    height: 100%;
+    width: 100%;
     margin: 0;
     background-color: var(--color-bg-dark);
     color: var(--color-accent2);
@@ -39,7 +54,6 @@ a:hover {
 }
 
 footer {
-    flex: 1;
     text-align: center;
     color: var(--color-accent3)
 }
@@ -49,10 +63,10 @@ footer > div > p, footer > div > a {
 }
 
 #main {
-    flex: 15;
     display: flex;
     flex-direction: row;
     margin: 1em 0.5em;
+    height: 86vh;
 }
 
 #browser {
@@ -62,13 +76,14 @@ footer > div > p, footer > div > a {
 }
 
 #content {
+    position: relative;
     flex: 3;
     margin: var(--box-margin);
     margin-left: 0;
     margin-bottom: 0.4em;
     border: var(--color-accent3) 1px solid;
     border-radius: 1em;
-    overflow: hidden;
+    overflow: auto;
 }
 
 .container {
@@ -174,6 +189,10 @@ h3 {
     margin-left: 2vw;
 }
 
-.content > p {
+.content > p{
     margin: 1em 2.5vw;
+}
+
+ul {
+    margin: 0 2.5vw;
 }
