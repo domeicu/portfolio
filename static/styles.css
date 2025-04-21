@@ -139,6 +139,7 @@ footer > div > p, footer > div > a {
 
 .content {
     display: none;
+    margin: 0 2vw;
 }
 
 .active-content {
@@ -164,21 +165,21 @@ h1 {
     line-height: 0.8;
     text-wrap: wrap;
     word-wrap: break-word;
-    margin: 3vw 3vw 1vw 2vw;
+    margin: 3vw 3vw 1vw 0;
 }
 
 h2 {
     color: var(--color-accent);
     font-size: 2em;
-    margin-left: 2vw;
+    margin-left: 0;
     margin-bottom: 0;
 }
 
 h3 {
     color: var(--color-accent3);
     line-height: 0;
-    margin-left: 2vw;
-    margin-top: 0.6vw;
+    margin-left: 0;
+    margin-top: 1em;
 }
 
 a {
@@ -188,14 +189,6 @@ a {
 
 a:hover {
     color: var(--color-accent);
-}
-
-.content > p {
-    margin: 1em 2vw;
-}
-
-.content > div > p {
-    margin: 1em 2vw;
 }
 
 ul {
@@ -210,5 +203,26 @@ ul {
 
 .content-paragraph-split {
     column-count: 2;
-    column-gap: 0;
+    column-gap: 2em;
+}
+
+.content-image-split {
+    display: flex;
+    flex-direction: row;
+}
+
+.content-image-split-column {
+    flex: 1;
+    margin-left: 2em;
+}
+
+.image-container {
+    border: var(--color-accent3) 1px solid;
+    border-radius: 1em;
+    width: 100%;
+}
+
+img {
+    padding: 4%;
+    width: 92%;
 }

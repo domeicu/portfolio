@@ -12,22 +12,6 @@ for (let i = 0; i < len; i++) {
     sectionIndexes[i] = 0;
 }
 
-function update() {
-    for (let i = 0; i < len; i++) {
-        sections[i].classList.remove("active-container");
-        contents[i].classList.remove("active-content");
-        for (let j = 0; j < sectionLengths[i]; j++) {
-            contents[i + j].classList.remove("active-content")
-            subsections[i][j].classList.remove("active-list-item");
-        }
-    }
-    sections[index].classList.add("active-container");
-    contents[index + sectionIndexes[index]].classList.add("active-content");
-    if (index != 0) {
-        subsections[index][sectionIndexes[index]].classList.add("active-list-item")
-    }
-}
-
 for (let i = 0; i < len; i++) {
     sections[i].onclick = function() {
         if (index != i) {
@@ -43,5 +27,21 @@ for (let i = 0; i < len; i++) {
             sectionIndexes[i] = j;
             update();
         }
+    }
+}
+
+function update() {
+    for (let i = 0; i < len; i++) {
+        sections[i].classList.remove("active-container");
+        contents[i].classList.remove("active-content");
+        for (let j = 0; j < sectionLengths[i]; j++) {
+            contents[i + j].classList.remove("active-content")
+            subsections[i][j].classList.remove("active-list-item");
+        }
+    }
+    sections[index].classList.add("active-container");
+    contents[index + sectionIndexes[index]].classList.add("active-content");
+    if (index != 0) {
+        subsections[index][sectionIndexes[index]].classList.add("active-list-item")
     }
 }
