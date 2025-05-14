@@ -48,5 +48,7 @@ function update() {
 }
 
 hamburger.onclick = function(event) {
-    hamburger.classList.toggle("hamburger-active")
+    hamburger.classList.toggle("hamburger-active");
+    hamburger.classList.toggle("fa-bars");
+    hamburger.classList.toggle("fa-times");
 }
