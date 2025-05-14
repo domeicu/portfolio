@@ -1,5 +1,6 @@
 sections = document.getElementsByClassName("container")
 contents = document.getElementsByClassName("content")
+hamburger = document.getElementById("hamburger")
 let subsections = []
 let sectionLengths = []
 let sectionIndexes = []
@@ -44,4 +45,8 @@ function update() {
     if (index != 0) {
         subsections[index][sectionIndexes[index]].classList.add("active-list-item")
     }
+}
+
+hamburger.onclick = function(event) {
+    hamburger.classList.toggle("hamburger-active")
 }
