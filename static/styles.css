@@ -87,19 +87,23 @@ body {
     color: var(--color-accent2);
 }
 
-footer {
+footer, .links {
     text-align: center;
-    color: var(--color-accent3)
+    color: var(--color-accent3);
 }
 
-footer > div > p, footer > div > a {
+.links {
+    padding-top: 2vh;
+}
+
+.links > div > a {
     margin: 0;
 }
 
 #main {
     display: flex;
     flex-direction: row;
-    margin: 1em 0.5em;
+    margin: 0 0.5em;
     height: 86vh;
 }
 
@@ -109,6 +113,12 @@ footer > div > p, footer > div > a {
     flex: 1;
     display: flex;
     flex-direction: column;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .container {
@@ -235,6 +245,9 @@ img {
 }
 
 @media only screen and (max-width: 960px) {
+    #main {
+        margin-top: 0;
+    }
     #browser {
         display: none;
     }
@@ -242,7 +255,7 @@ img {
         margin-left: 0.5em;
     }
     .content {
-        margin: 3em 1em;
+        margin: 2em 1em;
     }
 }
 
