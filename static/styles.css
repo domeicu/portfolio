@@ -182,7 +182,7 @@ footer > div > p, footer > div > a {
 
 .content {
     display: none;
-    margin: 6vh 2vw;
+    margin: 4em 2em;
 }
 
 .active-content {
@@ -232,4 +232,28 @@ footer > div > p, footer > div > a {
 img {
     padding: 4%;
     width: 92%;
+}
+
+@media only screen and (max-width: 960px) {
+    #browser {
+        display: none;
+    }
+    #content {
+        margin-left: 0.5em;
+    }
+    .content {
+        margin: 3em 1em;
+    }
+}
+
+@media only screen and (max-width: 720px) {
+    h1 {
+        font-size: 7em;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    h1 {
+        font-size: 6em;
+    }
 }
