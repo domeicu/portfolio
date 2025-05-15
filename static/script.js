@@ -1,6 +1,8 @@
 sections = document.getElementsByClassName("container")
 contents = document.getElementsByClassName("content")
 hamburger = document.getElementById("hamburger")
+browser = document.getElementsByClassName("browser")[0]
+content = document.getElementById("content")
 let subsections = []
 let sectionLengths = []
 let sectionIndexes = []
@@ -51,4 +53,6 @@ hamburger.onclick = function(event) {
     hamburger.classList.toggle("hamburger-active");
     hamburger.classList.toggle("fa-bars");
     hamburger.classList.toggle("fa-times");
+    browser.classList.toggle("mobile-hidden");
+    content.classList.toggle("mobile-hidden");
 }

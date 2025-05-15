@@ -13,6 +13,7 @@
 * {
     font-family: Roboto, sans-serif;
     transition: 0.2s;
+    hyphens: auto;
 }
 
 .no-select {
@@ -64,18 +65,18 @@ h2 {
 
 h3 {
     color: var(--color-accent3);
-    line-height: 0;
+    line-height: 1;
     margin-left: 0;
     margin-top: 1em;
+}
+
+footer > p {
+    margin: 0;
 }
 
 a {
     margin: 1em 0;
     color: var(--color-accent3)
-}
-
-a:not(#hamburger):hover {
-    color: var(--color-accent);
 }
 
 ul {
@@ -99,12 +100,13 @@ body {
 #header, footer {
     text-align: center;
     color: var(--color-accent3);
+    margin-top: 2vh;
 }
 
 #header {
     display: flex;
-    padding-top: 2vh;
-    margin: 0 1.5em;
+    margin-left: 1.5em;
+    margin-right: 1.5em;
 }
 
 #header-hamburger-section {
@@ -140,7 +142,7 @@ body {
     color: var(--color-accent);
 }
 
-#browser {
+.browser {
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -154,10 +156,6 @@ body {
     border-radius: 1em;
 }
 
-.container:hover {
-    border-color: var(--color-accent2);
-}
-
 .active-container {
     border-color: var(--color-accent);
 }
@@ -168,10 +166,6 @@ body {
     padding: 0.5em 5em;
     margin-top: -1.2em;
     color: var(--color-accent3);
-}
-
-.container:hover .title {
-    color: var(--color-accent2);
 }
 
 .active-container > .title {
@@ -198,7 +192,7 @@ body {
     padding: 0.5em 0;
 }
 
-.list-item:hover, .active-list-item {
+.active-list-item {
     background-color: var(--color-accent3);
 }
 
@@ -269,12 +263,27 @@ img {
     width: 92%;
 }
 
+@media only screen and (min-width: 960px) {
+    a:hover {
+        color: var(--color-accent);
+    }
+    .container:hover {
+        border-color: var(--color-accent2);
+    }
+    .container:hover .title {
+        color: var(--color-accent2);
+    }
+    .list-item:hover {
+        background-color: var(--color-accent3);
+    }
+}
+
 @media only screen and (max-width: 960px) {
+    .mobile-hidden {
+        display: none;
+    }
     #main {
         margin-top: 0;
-    }
-    #browser {
-        display: none;
     }
     #header-links-section {
         text-align: right;
@@ -288,16 +297,13 @@ img {
     .content {
         margin: 2em 1em;
     }
+    .content-paragraph-split {
+        column-count: 1;
+    }
 }
 
 @media only screen and (max-width: 720px) {
     h1 {
-        font-size: 7em;
-    }
-}
-
-@media only screen and (max-width: 400px) {
-    h1 {
-        font-size: 6em;
+        font-size: 20vw;
     }
 }
