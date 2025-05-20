@@ -235,34 +235,6 @@ body {
     column-gap: 2em;
 }
 
-.content-image-split {
-    display: flex;
-    flex-direction: row;
-}
-
-.content-image-split-column {
-    flex: 1;
-}
-
-.content-image-split-column-big {
-    flex: 1.2;
-}
-
-.content-image-split-column-right {
-    margin-left: 2em;
-}
-
-.image-container {
-    border: var(--color-accent3) 1px solid;
-    border-radius: 1em;
-    width: 100%;
-}
-
-img {
-    padding: 4%;
-    width: 92%;
-}
-
 @media only screen and (min-width: 960px) {
     a:hover {
         color: var(--color-accent);
