@@ -82,26 +82,32 @@ ul { margin: 0 2.5vw; }
 
 /* High Level Divs */
 body {
-  height: 100%;
+  height: 100vh;
   width: 100%;
   margin: 0;
   background-color: var(--color-bg-dark);
   color: var(--color-accent2);
-  overflow-x: hidden; /* Prevent horizontal scroll when menu slides */
-}
-
-#header, footer {
-  text-align: center;
-  color: var(--color-accent3);
-  margin-top: 2vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 
 #header {
   display: flex;
+  margin-top: 2vh;
   margin-left: 1.5em;
   margin-right: 1.5em;
   position: relative;
-  z-index: 200; /* Ensure header stays on top */
+  z-index: 200;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+footer {
+  margin-bottom: 2vh;
+  text-align: center;
+  color: var(--color-accent3);
+  flex-shrink: 0;
 }
 
 #header-hamburger-section {
@@ -110,18 +116,19 @@ body {
   font-size: xx-large;
   text-align: left;
   cursor: pointer;
-  z-index: 201; /* Ensure hamburger is clickable over the menu */
+  z-index: 201;
 }
 
-#header-links-section { flex: 1; }
+#header-links-section { flex: 3; }
 .social-icon { margin: 0; }
 
 #main {
   display: flex;
   flex-direction: row;
   margin: 0 0.5em;
-  height: 86vh;
-  position: relative; /* Needed for absolute positioning context */
+  flex: 1;
+  min-height: 0;
+  margin-bottom: 1vh;
 }
 
 /* Browser (Left Hand Side) */
