@@ -16,44 +16,31 @@
   hyphens: auto;
 }
 
-.no-select {
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+::selection {
+  background: var(--color-accent);
+  color: var(--color-bg-dark);
 }
 
 /* SCROLLBAR */
-
-::-webkit-scrollbar {
-  width: 5px;
-}
-
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb {
   background: var(--color-accent2);
   border-radius: 2.5px;
 }
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--color-accent);
-}
+::-webkit-scrollbar-thumb:hover { background: var(--color-accent); }
 
 /* Text Types */
-
 h1 {
   color: var(--color-accent);
   font-family: Playfair Display;
   font-size: 8em;
   line-height: 0.8;
-  text-wrap: wrap;
-  word-wrap: break-word;
   margin: 0;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  text-wrap: balance;
+  overflow-wrap: break-word;
 }
 
 h2 {
@@ -65,36 +52,42 @@ h2 {
 
 h3 {
   color: var(--color-accent3);
-  line-height: 1;
+  font-size: 1.1em;
+  font-weight: 400;
+  line-height: 1.2;
   margin-left: 0;
-  margin-top: 1em;
+  margin-top: 0.5em;
+  margin-bottom: 1em;
 }
 
-footer > p {
-  margin: 0;
+h4 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.85em;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  line-height: 1.5;
+  color: var(--color-accent2); 
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  padding-left: 0.8em;
+  border-left: 2px solid var(--color-accent);
+  opacity: 0.9;
 }
 
-a {
-  margin: 1em 0;
-  color: var(--color-accent3)
-}
-
-ul {
-  margin: 0 2.5vw;
-}
-
-.fa {
-  text-decoration: none;
-}
+footer > p { margin: 0; }
+a { margin: 1em 0; color: var(--color-accent2) }
+ul { margin: 0 2.5vw; }
+.fa { text-decoration: none; }
 
 /* High Level Divs */
-
 body {
   height: 100%;
   width: 100%;
   margin: 0;
   background-color: var(--color-bg-dark);
   color: var(--color-accent2);
+  overflow-x: hidden; /* Prevent horizontal scroll when menu slides */
 }
 
 #header, footer {
@@ -107,6 +100,8 @@ body {
   display: flex;
   margin-left: 1.5em;
   margin-right: 1.5em;
+  position: relative;
+  z-index: 200; /* Ensure header stays on top */
 }
 
 #header-hamburger-section {
@@ -114,27 +109,25 @@ body {
   display: none;
   font-size: xx-large;
   text-align: left;
+  cursor: pointer;
+  z-index: 201; /* Ensure hamburger is clickable over the menu */
 }
 
-#header-links-section {
-  flex: 1;
-}
-
-.social-icon {
-  margin: 0;
-}
+#header-links-section { flex: 1; }
+.social-icon { margin: 0; }
 
 #main {
   display: flex;
   flex-direction: row;
   margin: 0 0.5em;
   height: 86vh;
+  position: relative; /* Needed for absolute positioning context */
 }
 
 /* Browser (Left Hand Side) */
-
 #hamburger {
   margin: 0;
+  transition: transform 0.3s ease;
 }
 
 .hamburger-active {
@@ -146,6 +139,9 @@ body {
   flex: 1;
   display: flex;
   flex-direction: column;
+  /* Add transition for the slide effect */
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 100;
 }
 
 .container {
@@ -156,9 +152,7 @@ body {
   border-radius: 1em;
 }
 
-.active-container {
-  border-color: var(--color-accent);
-}
+.active-container { border-color: var(--color-accent); }
 
 .title {
   width: fit-content;
@@ -168,9 +162,7 @@ body {
   color: var(--color-accent3);
 }
 
-.active-container > .title {
-  color: var(--color-accent);
-}
+.active-container > .title { color: var(--color-accent); }
 
 .title > p {
   margin: 0;
@@ -187,16 +179,8 @@ body {
   padding: 0;
 }
 
-.list-item > p {
-  margin: 0;
-  padding: 0.5em 0;
-}
-
-.active-list-item {
-  background-color: var(--color-accent3);
-}
-
-/* Content Window */
+.list-item > p { margin: 0; padding: 0.5em 0; }
+.active-list-item { background-color: var(--color-accent3); }
 
 #content {
   position: relative;
@@ -209,73 +193,50 @@ body {
   overflow: auto;
 }
 
-.content {
-  display: none;
-  margin: 3em 2em;
-}
+.content { display: none; margin: 3em 2em; }
+.active-content { display: block; }
+#home { flex: none; }
+#experience { flex: 0.5; }
+#home-section-paragraph { margin: 0; padding: 1.2em; padding-top: 0; }
+.content-paragraph-split { column-count: 2; column-gap: 2em; }
 
-.active-content {
-  display: block;
-}
-
-#home {
-  flex: none;
-}
-
-#home-section-paragraph {
-  margin: 0;
-  padding: 1.2em;
-  padding-top: 0;
-}
-
-/* Content Window Specifics */
-
-.content-paragraph-split {
-  column-count: 2;
-  column-gap: 2em;
-}
-
+/* Desktop Hover States */
 @media only screen and (min-width: 960px) {
   a:hover {
     color: var(--color-accent);
+    border-bottom: 1px solid var(--color-accent);
   }
-  .container:hover {
-    border-color: var(--color-accent2);
-  }
-  .container:hover .title {
-    color: var(--color-accent2);
-  }
-  .list-item:hover {
-    background-color: var(--color-accent3);
-  }
+  .container:hover { border-color: var(--color-accent2); }
+  .container:hover .title { color: var(--color-accent2); }
+  .list-item:hover { background-color: var(--color-accent3); }
 }
 
 @media only screen and (max-width: 960px) {
-  .mobile-hidden {
-    display: none;
+  #main { margin-top: 0; }
+  #header-links-section { text-align: right; }
+  #header-hamburger-section { display: block; }
+  #content { margin-left: 0.5em; }
+  .content { margin: 2em 1em; }
+  .content-paragraph-split { column-count: 1; }
+  
+  .browser {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 90vh;
+    background-color: var(--color-bg-dark);
+    padding-top: 10vh;
+    margin: 0;
+    border-right: 1px solid var(--color-accent3);
+    transform: translateX(0);
   }
-  #main {
-    margin-top: 0;
-  }
-  #header-links-section {
-    text-align: right;
-  }
-  #header-hamburger-section {
-    display: block;
-  }
-  #content {
-    margin-left: 0.5em;
-  }
-  .content {
-    margin: 2em 1em;
-  }
-  .content-paragraph-split {
-    column-count: 1;
+
+  .browser.mobile-hidden {
+    display: flex;
+    transform: translateX(-105%);
   }
 }
 
 @media only screen and (max-width: 720px) {
-  h1 {
-    font-size: 20vw;
-  }
+  h1 { font-size: 20vw; }
 }
