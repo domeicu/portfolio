@@ -1,58 +1,78 @@
-const sections = document.getElementsByClassName("container")
-const contents = document.getElementsByClassName("content")
-const hamburger = document.getElementById("hamburger")
-const browser = document.getElementsByClassName("browser")[0]
-const content = document.getElementById("content")
-const len = sections.length
-let subsections = []
-let sectionLengths = []
-let sectionIndexes = []
-let index = 0
+const hamburger = document.getElementById("hamburger");
+const browser = document.querySelector(".browser");
+const mainContentDiv = document.getElementById("content");
+const contentSections = document.querySelectorAll(".content");
 
-for (let i = 0; i < len; i++) {
-  subsections[i] = sections[i].getElementsByClassName("list-item");
-  sectionLengths[i] = subsections[i].length;
-  sectionIndexes[i] = 0;
-}
+let activeContainer = document.getElementById("home");
+let activeContent = document.getElementById("home-home");
+let activeListItem = null;
 
-for (let i = 0; i < len; i++) {
-  sections[i].onclick = function() {
-    if (index != i) {
-      sectionIndexes[i] = 0;
-    }
-    index = i;
-    update();
-  }
-  for (let j = 0; j < sectionLengths[i]; j++) {
-    subsections[i][j].onclick = function(event) {
-      event.stopPropagation();
-      index = i;
-      sectionIndexes[i] = j;
-      update();
-    }
-  }
-}
+contentSections.forEach((content) => {
+  const parentId = content.getAttribute("data-parent");
+  const titleText = content.getAttribute("data-title");
 
-function update() {
-  for (let i = 0; i < len; i++) {
-    sections[i].classList.remove("active-container");
-    contents[i].classList.remove("active-content");
-    for (let j = 0; j < sectionLengths[i]; j++) {
-      contents[i + j].classList.remove("active-content")
-      subsections[i][j].classList.remove("active-list-item");
+  if (parentId && titleText) {
+    const parentContainer = document.getElementById(parentId);
+    if (parentContainer) {
+      const listItem = document.createElement("div");
+      listItem.className = "list-item";
+      
+      const p = document.createElement("p");
+      p.innerText = titleText;
+      listItem.appendChild(p);
+      
+      parentContainer.appendChild(listItem);
+
+      listItem.onclick = (event) => {
+        event.stopPropagation();
+        updateDisplay(parentContainer, listItem, content);
+      };
+
+      // track first list elem. for when section is clicked
+      if (!parentContainer.firstItemRef) {
+          parentContainer.firstItemRef = listItem;
+          parentContainer.firstContentRef = content;
+      }
     }
   }
-  sections[index].classList.add("active-container");
-  contents[index + sectionIndexes[index]].classList.add("active-content");
-  if (index != 0) {
-    subsections[index][sectionIndexes[index]].classList.add("active-list-item")
+});
+
+const containers = document.querySelectorAll(".container");
+
+containers.forEach((container) => {
+  container.onclick = () => {
+    if (activeContainer !== container) {
+      if (container.id === "home") {
+          updateDisplay(container, null, document.getElementById("home-home"));
+      } else if (container.firstItemRef && container.firstContentRef) {
+          updateDisplay(container, container.firstItemRef, container.firstContentRef);
+      }
+    };
   }
+});
+
+function updateDisplay(newContainer, newItem, newContent) {
+  if (activeContainer) activeContainer.classList.remove("active-container");
+  if (activeListItem) activeListItem.classList.remove("active-list-item");
+  if (activeContent) activeContent.classList.remove("active-content");
+
+  activeContainer = newContainer;
+  activeListItem = newItem;
+  activeContent = newContent;
+
+  if (activeContainer) activeContainer.classList.add("active-container");
+  if (activeListItem) activeListItem.classList.add("active-list-item");
+  if (activeContent) activeContent.classList.add("active-content");
+
+  toggleMenu();
 }
 
-hamburger.onclick = function() {
+function toggleMenu() {
   hamburger.classList.toggle("hamburger-active");
   hamburger.classList.toggle("fa-bars");
   hamburger.classList.toggle("fa-times");
   browser.classList.toggle("mobile-hidden");
-  content.classList.toggle("mobile-hidden");
+  mainContentDiv.classList.toggle("mobile-hidden");
 }
+
+hamburger.onclick = toggleMenu;
