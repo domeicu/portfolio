@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dom Seto</title>
-  <link rel="icon" type="image/x-icon" href="static/imgs/icon.jpg">
+  <link rel="icon" type="image/x-icon" href="src/imgs/icon.jpg">
   <link rel="stylesheet" href="src/styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -35,33 +35,24 @@
           Hi, I'm Dom, a software engineering student at the University of New South Wales in Sydney, Australia.
         </p>
       </div>
+
       <div class="container" id="experience">
         <div class="title">
           <p>EXPERIENCE</p>
         </div>
-        <div class="list-item">
-          <p>Lua Programming Tutorials</p>
-        </div>
       </div>
+
       <div class="container" id="projects">
         <div class="title">
           <p>PROJECTS</p>
         </div>
-        <div class="list-item">
-          <p>dome.icu</p>
-        </div>
-        <div class="list-item">
-          <p>dype</p>
-        </div>
-        <div class="list-item">
-          <p>dragtyping</p>
-        </div>
       </div>
     </div>
+
     <div id="content">
       <div id="home-home" class="content active-content">
         <h1>DOM&shy;ENIC<br>SETO <span style="font-size: 0.4em; vertical-align: middle; text-wrap: nowrap;">(司徒)</span></h1>
-        <h3>Student</h3>
+        <h4>2nd Year Student, UNSW</h4>
         <p>Hi, I'm Dom. I'm currently a Software Engineering student at the University of New South Wales in Sydney, Australia.</p>
         <p>
           In my free time, I love creating videos about my faith in Jesus and catching up with friends over some coffee or exercise. I've lived in Sydney my whole life but still love going on long runs to explore the city. My current goals include:
@@ -75,12 +66,13 @@
         <p>Thanks for checking out my website! Have a look around at my past projects and experience by clicking on any of the sections.</p>
         <br><br><br>
       </div>
-      <div id="project-youtube" class="content">
-        <h1>LUA PRO&shy;GRAMMING TUTS</h1>
-        <h3>Created 2020-2022</h3>
+
+      <div id="project-youtube" class="content" data-parent="experience" data-title="Lua Programming Tutorials">
+        <h1>LUA PRO&shy;GRAMMING TUT&shy;ORIALS</h1>
+        <h4>Skills / Technical Communication, Community Management, Content Strategy</h4>
+        <h3>Created 2020-2022 / <a href="https://www.youtube.com/playlist?list=PLidquopAeEXBA2cXbkvg-Rhnan1ZtCXqj" target="_blank">YouTube</a></h3>
         <h2>1.5M+ views</h2>
         <h3>Built & managed a community of 1200+ programmers</h3>
-        <h2><a href="https://www.youtube.com/playlist?list=PLidquopAeEXBA2cXbkvg-Rhnan1ZtCXqj" target="_blank">YouTube</a></h2>
         <div class="content-paragraph-split">
           <p>As the creator of an educational <strong>Roblox Studio tutorial series</strong>, I fostered my own <strong>community of 1200+ programmers</strong> on the <strong>Discord</strong> platform in addition to the over <strong>1.5 million views</strong> my tutorials garnered.</p>
           <p>Although a children's game, Roblox's game engine makes use of the powerful <strong>Lua programming language</strong> to develop games.</p>
@@ -108,30 +100,29 @@
         </div>
         <br><br><br>
       </div>
-      <div class="content">
-        <h1>PERSONAL FOLIO SITE</h1>
-        <h3>Created 2025</h3>
-        <h2><a href="https://github.com/domeicu/portfolio" target="_blank">GitHub</a></h2>
-        <p>At UNSW they don't let Software Engineering students take the core computing course in term 1!</p>
-        <p>But as a passionately passionate software engineer I had an insatiable craving to just write code, so I worked on this website whenever I had free time over my first term at uni.</p>
-        <p>I've made several random websites in the past but this was the first that sort of took on some proper form. I used vanilla HTML, CSS and JavaScript without any dependencies.</p>
-        <p>I designed and coded the website from scratch to be fully responsive, taking inspiration from workflow and productivity apps such as Obsidian and Notion.</p>
-        <br><br><br>
+
+      <div class="content" data-parent="projects" data-title="runic">
+        <h1>RUN&shy;NING COMP&shy;ANION APP</h1>
+        <h4>Skills / TypeScript, Tailwind CSS, Expo SQLite, Drizzle ORM</h4>
+        <h3>Created 2026 / <a href="https://github.com/domeicu/runic" target="_blank">GitHub</a></h3>
+
       </div>
-      <div class="content">
+
+      <div class="content" data-parent="projects" data-title="dype">
         <h1>TYPING TEST SITE</h1>
-        <h3>Created 2023/2025</h3>
-        <h2><a href="https://github.com/domeicu/dype" target="_blank">GitHub</a> <a href="https://domeicu.github.io/dype/" target="_blank">Website</a></h2>
+        <h4>Skills / Vanilla JavaScript (ES6+), DOM Manipulation, CSS3 Flexbox/Grid, Responsive Web Design</h4>
+        <h3>Created 2023/2025 / <a href="https://github.com/domeicu/dype" target="_blank">GitHub</a> <a href="https://domeicu.github.io/dype/" target="_blank">Website</a></h3>
         <div class="content-image-split-column">
-          <p>During my final year in high school my free periods were always taken up by random coding projects. For some reason I've just always liked typing tests, so I made this site.</p>
-          <p>Two years later, I picked up the project again, finally started doing some sort of version control, and brushed up the site. This included adding a Bible verse typing mode, cleaning up some of the code, and adding customisation options.</p>
+          <p>During my final year in high school I spent my free period on side projects. I've always enjoyed typing tests, so I made this site. I used vanilla HTML, CSS and JavaScript without any dependencies.</p>
+          <p>Two years later I spent some time cleaning up the code, restyling, and implementing a Bible verse typing mode.</p>
         </div>
         <br><br><br>
       </div>
-      <div class="content">
+
+      <div class="content" data-parent="projects" data-title="dragtyping">
         <h1>TYPING TEST GAME</h1>
-        <h3>Created 2023</h3>
-        <h2><a href="https://github.com/domeicu/dragtyping" target="_blank">GitHub</a> <a href="https://www.youtube.com/watch?v=WDYorpmNLc8" target="_blank">Showcase</a></h2>
+        <h4>Skills / Python (Pygame), 3D Rendering (Blender), Mathematics for Games (Coordinate Geometry), State Management</h4>
+        <h3>Created 2023 / <a href="https://github.com/domeicu/dragtyping" target="_blank">GitHub</a> <a href="https://www.youtube.com/watch?v=WDYorpmNLc8" target="_blank">Showcase</a></h3>
         <p>
           For my high school major project, I blended my love for JDM cars and typing test games to create <strong>dragtyping</strong> using the Python library <strong>pygame</strong>. This project taught me core skills in:
           <ul>
@@ -143,7 +134,18 @@
           </ul>
         </p>
         <p>This project also required me to gather feedback from peers and implement improvements to the core gameplay loop, UI, highscore display screen etc.</p>
-        <p>The biggest challenge I encountered was simulating 3D graphics on a 2D game engine which is relatively outdated. The solution was rendering individual frames using the 3D software Blender, and ensuring the various animations lined up with one another.</p>
+        <p>The biggest challenge I encountered was simulating 3D graphics on a 2D game engine. I worked through this by rendering individual frames using the 3D modelling software <strong>Blender</strong>, ensuring the various animations' start and end frames lined up with one another.</p>
+        <br><br><br>
+      </div>
+
+      <div class="content" data-parent="projects" data-title="dome.icu">
+        <h1>PERSO&shy;NAL FOLIO SITE</h1>
+        <h4>Skills / HTML5 Semantic Markup, Advanced CSS (Animations & State), JavaScript Event Handling, Git/GitHub Version Control</h4>
+        <h3>Created 2025 / <a href="https://github.com/domeicu/portfolio" target="_blank">GitHub</a></h3>
+        <p>At UNSW they don't let Software Engineering students take the core computing course in term 1!</p>
+        <p>But as a passionately passionate software engineer I had an insatiable craving to just write code, so I worked on this website whenever I had free time over my first term at uni.</p>
+        <p>I've made several random websites in the past but this was the first that sort of took on some proper form. I used vanilla HTML, CSS and JavaScript without any dependencies.</p>
+        <p>I designed and coded the website from scratch to be fully responsive, taking inspiration from workflow and productivity apps such as Obsidian and Notion.</p>
         <br><br><br>
       </div>
     </div>
