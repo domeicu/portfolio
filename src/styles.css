@@ -221,7 +221,6 @@ footer {
 @media only screen and (min-width: 960px) {
   a:hover {
     color: var(--color-accent);
-    border-bottom: 1px solid var(--color-accent);
   }
   .container:hover { border-color: var(--color-accent2); }
   .container:hover .title { color: var(--color-accent2); }
