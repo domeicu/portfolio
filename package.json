@@ -6,6 +6,10 @@
   },
   "scripts": {
     "lint": "eslint .",
-    "lint-fix": "eslint --fix ."
+    "lint-fix": "eslint --fix .",
+    "format": "prettier --write ."
+  },
+  "dependencies": {
+    "prettier": "^3.8.0"
   }
 }

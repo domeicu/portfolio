@@ -16,11 +16,11 @@ contentSections.forEach((content) => {
     if (parentContainer) {
       const listItem = document.createElement("div");
       listItem.className = "list-item";
-      
+
       const p = document.createElement("p");
       p.innerText = titleText;
       listItem.appendChild(p);
-      
+
       parentContainer.appendChild(listItem);
 
       listItem.onclick = (event) => {
@@ -30,8 +30,8 @@ contentSections.forEach((content) => {
 
       // track first list elem. for when section is clicked
       if (!parentContainer.firstItemRef) {
-          parentContainer.firstItemRef = listItem;
-          parentContainer.firstContentRef = content;
+        parentContainer.firstItemRef = listItem;
+        parentContainer.firstContentRef = content;
       }
     }
   }
@@ -43,12 +43,16 @@ containers.forEach((container) => {
   container.onclick = () => {
     if (activeContainer !== container) {
       if (container.id === "home") {
-          updateDisplay(container, null, document.getElementById("home-home"));
+        updateDisplay(container, null, document.getElementById("home-home"));
       } else if (container.firstItemRef && container.firstContentRef) {
-          updateDisplay(container, container.firstItemRef, container.firstContentRef);
+        updateDisplay(
+          container,
+          container.firstItemRef,
+          container.firstContentRef,
+        );
       }
-    };
-  }
+    }
+  };
 });
 
 function updateDisplay(newContainer, newItem, newContent) {
